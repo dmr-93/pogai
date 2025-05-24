@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PogAI</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        input[type="text"] {
+            width: 400px;
+            height: 30px;
+            font-size: 16px;
+            padding: 5px;
+        }
+        button {
+            height: 40px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .resposta {
+            margin-top: 30px;
+            width: 600px;
+            font-size: 16px;
+        }
+        .pergunta {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .bloco {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PogAI</h1>
+    <form method="POST">
+        <input type="text" name="pergunta" placeholder="Digite sua pergunta aqui" autofocus>
+        <br>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <div class="resposta">
+        {% for pergunta, resposta in historico %}
+            <div class="bloco">
+                <div class="pergunta">{{ pergunta }}</div>
+                <div>{{ resposta }}</div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
